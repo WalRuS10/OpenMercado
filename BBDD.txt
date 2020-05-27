@@ -1,0 +1,69 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.3
+-- http://www.phpmyadmin.net
+-- 
+-- Servidor: localhost
+-- Tiempo de generación: 19-11-2013 a las 23:30:26
+-- Versión del servidor: 5.0.41
+-- Versión de PHP: 5.2.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Base de datos: `mercado`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `publicaciones`
+-- 
+
+CREATE TABLE IF NOT EXISTS `publicaciones` (
+  `idpublicacion` int(11) NOT NULL auto_increment,
+  `idvendedor` int(11) NOT NULL,
+  `titulo` varchar(50) collate latin1_general_ci NOT NULL,
+  `descripcion` varchar(1000) collate latin1_general_ci NOT NULL,
+  `precio` double NOT NULL,
+  `vendido` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`idpublicacion`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Volcar la base de datos para la tabla `publicaciones`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `usuarios`
+-- 
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `idusuario` int(11) NOT NULL auto_increment,
+  `nombre` varchar(50) collate latin1_general_ci NOT NULL,
+  `password` varchar(50) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`idusuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Volcar la base de datos para la tabla `usuarios`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `ventas`
+-- 
+
+CREATE TABLE IF NOT EXISTS `ventas` (
+  `idpublicacion` int(11) NOT NULL,
+  `idcomprador` int(11) NOT NULL,
+  PRIMARY KEY  (`idpublicacion`,`idcomprador`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- 
+-- Volcar la base de datos para la tabla `ventas`
+-- 
